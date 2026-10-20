@@ -1,0 +1,561 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 880 500" width="100%" height="500" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="stack-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080D1A"/>
+      <stop offset="50%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#0D1630"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="stack-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#247BFF" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#00F2FE" stop-opacity="0.3"/>
+      <stop offset="80%" stop-color="#FF354F" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#247BFF" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Central Core Radial Gradient -->
+    <radialGradient id="stack-core-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="40%" stop-color="#247BFF"/>
+      <stop offset="85%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </radialGradient>
+
+    <!-- Orbit 1 Track Gradient (Electric Blue / Cyan) -->
+    <linearGradient id="stack-orbit1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#247BFF" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#00F2FE" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Orbit 2 Track Gradient (Crimson / Coral) -->
+    <linearGradient id="stack-orbit2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF354F" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FF8494" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Orbit 3 Track Gradient (Cyan / Violet) -->
+    <linearGradient id="stack-orbit3-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Glowing Trail Gradients -->
+    <linearGradient id="stack-trail1-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F2FE" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#247BFF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#247BFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="stack-trail2-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF354F" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#FF8494" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF354F" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="stack-trail3-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#818CF8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Dot Grid Pattern -->
+    <pattern id="stack-dot-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#247BFF" fill-opacity="0.12"/>
+    </pattern>
+
+    <!-- Ambient Blur Filter -->
+    <filter id="stack-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+    </filter>
+
+    <!-- Satellite Capsule Drop Shadow -->
+    <filter id="stack-sat-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+
+    <!-- Subtle Trail Particle Glow Filter -->
+    <filter id="stack-trail-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+    </filter>
+  </defs>
+
+  <style>
+    <![CDATA[
+    .stack-font {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    .stack-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    }
+
+    @keyframes orbit-react {
+      0.0% { transform: translate(541.9px, 169.6px); }
+      4.2% { transform: translate(541px, 181px); }
+      8.3% { transform: translate(533.3px, 193.4px); }
+      12.5% { transform: translate(519.2px, 205.9px); }
+      16.7% { transform: translate(499.7px, 217.6px); }
+      20.8% { transform: translate(476.2px, 227.8px); }
+      25.0% { transform: translate(450.2px, 235.8px); }
+      29.2% { transform: translate(423.4px, 240.9px); }
+      33.3% { transform: translate(397.9px, 243px); }
+      37.5% { transform: translate(375.1px, 241.8px); }
+      41.7% { transform: translate(356.8px, 237.4px); }
+      45.8% { transform: translate(344.2px, 230.1px); }
+      50.0% { transform: translate(338.1px, 220.4px); }
+      54.2% { transform: translate(339px, 209px); }
+      58.3% { transform: translate(346.7px, 196.6px); }
+      62.5% { transform: translate(360.8px, 184.1px); }
+      66.7% { transform: translate(380.3px, 172.4px); }
+      70.8% { transform: translate(403.8px, 162.2px); }
+      75.0% { transform: translate(429.8px, 154.2px); }
+      79.2% { transform: translate(456.6px, 149.1px); }
+      83.3% { transform: translate(482.1px, 147px); }
+      87.5% { transform: translate(504.9px, 148.2px); }
+      91.7% { transform: translate(523.2px, 152.6px); }
+      95.8% { transform: translate(535.8px, 159.9px); }
+      100.0% { transform: translate(541.9px, 169.6px); }
+    }
+
+    @keyframes orbit-next {
+      0.0% { transform: translate(338.1px, 220.4px); }
+      4.2% { transform: translate(339px, 209px); }
+      8.3% { transform: translate(346.7px, 196.6px); }
+      12.5% { transform: translate(360.8px, 184.1px); }
+      16.7% { transform: translate(380.3px, 172.4px); }
+      20.8% { transform: translate(403.8px, 162.2px); }
+      25.0% { transform: translate(429.8px, 154.2px); }
+      29.2% { transform: translate(456.6px, 149.1px); }
+      33.3% { transform: translate(482.1px, 147px); }
+      37.5% { transform: translate(504.9px, 148.2px); }
+      41.7% { transform: translate(523.2px, 152.6px); }
+      45.8% { transform: translate(535.8px, 159.9px); }
+      50.0% { transform: translate(541.9px, 169.6px); }
+      54.2% { transform: translate(541px, 181px); }
+      58.3% { transform: translate(533.3px, 193.4px); }
+      62.5% { transform: translate(519.2px, 205.9px); }
+      66.7% { transform: translate(499.7px, 217.6px); }
+      70.8% { transform: translate(476.2px, 227.8px); }
+      75.0% { transform: translate(450.2px, 235.8px); }
+      79.2% { transform: translate(423.4px, 240.9px); }
+      83.3% { transform: translate(397.9px, 243px); }
+      87.5% { transform: translate(375.1px, 241.8px); }
+      91.7% { transform: translate(356.8px, 237.4px); }
+      95.8% { transform: translate(344.2px, 230.1px); }
+      100.0% { transform: translate(338.1px, 220.4px); }
+    }
+
+    @keyframes orbit-ts {
+      0.0% { transform: translate(450.9px, 272.2px); }
+      4.2% { transform: translate(506.9px, 261.7px); }
+      8.3% { transform: translate(558.3px, 246.6px); }
+      12.5% { transform: translate(601.7px, 228px); }
+      16.7% { transform: translate(634.1px, 207.1px); }
+      20.8% { transform: translate(653.2px, 185.4px); }
+      25.0% { transform: translate(657.9px, 164.4px); }
+      29.2% { transform: translate(647.6px, 145.4px); }
+      33.3% { transform: translate(623.2px, 129.9px); }
+      37.5% { transform: translate(586.4px, 118.7px); }
+      41.7% { transform: translate(539.5px, 112.8px); }
+      45.8% { transform: translate(485.9px, 112.5px); }
+      50.0% { transform: translate(429.1px, 117.8px); }
+      54.2% { transform: translate(373.1px, 128.3px); }
+      58.3% { transform: translate(321.7px, 143.4px); }
+      62.5% { transform: translate(278.3px, 162px); }
+      66.7% { transform: translate(245.9px, 182.9px); }
+      70.8% { transform: translate(226.8px, 204.6px); }
+      75.0% { transform: translate(222.1px, 225.6px); }
+      79.2% { transform: translate(232.4px, 244.6px); }
+      83.3% { transform: translate(256.8px, 260.1px); }
+      87.5% { transform: translate(293.6px, 271.3px); }
+      91.7% { transform: translate(340.5px, 277.2px); }
+      95.8% { transform: translate(394.1px, 277.5px); }
+      100.0% { transform: translate(450.9px, 272.2px); }
+    }
+
+    @keyframes orbit-js {
+      0.0% { transform: translate(429.1px, 117.8px); }
+      4.2% { transform: translate(373.1px, 128.3px); }
+      8.3% { transform: translate(321.7px, 143.4px); }
+      12.5% { transform: translate(278.3px, 162px); }
+      16.7% { transform: translate(245.9px, 182.9px); }
+      20.8% { transform: translate(226.8px, 204.6px); }
+      25.0% { transform: translate(222.1px, 225.6px); }
+      29.2% { transform: translate(232.4px, 244.6px); }
+      33.3% { transform: translate(256.8px, 260.1px); }
+      37.5% { transform: translate(293.6px, 271.3px); }
+      41.7% { transform: translate(340.5px, 277.2px); }
+      45.8% { transform: translate(394.1px, 277.5px); }
+      50.0% { transform: translate(450.9px, 272.2px); }
+      54.2% { transform: translate(506.9px, 261.7px); }
+      58.3% { transform: translate(558.3px, 246.6px); }
+      62.5% { transform: translate(601.7px, 228px); }
+      66.7% { transform: translate(634.1px, 207.1px); }
+      70.8% { transform: translate(653.2px, 185.4px); }
+      75.0% { transform: translate(657.9px, 164.4px); }
+      79.2% { transform: translate(647.6px, 145.4px); }
+      83.3% { transform: translate(623.2px, 129.9px); }
+      87.5% { transform: translate(586.4px, 118.7px); }
+      91.7% { transform: translate(539.5px, 112.8px); }
+      95.8% { transform: translate(485.9px, 112.5px); }
+      100.0% { transform: translate(429.1px, 117.8px); }
+    }
+
+    @keyframes orbit-figma {
+      0.0% { transform: translate(737.6px, 230.3px); }
+      4.2% { transform: translate(685.4px, 257.2px); }
+      8.3% { transform: translate(616.4px, 279.9px); }
+      12.5% { transform: translate(535.3px, 296.8px); }
+      16.7% { transform: translate(447.8px, 306.7px); }
+      20.8% { transform: translate(359.8px, 309.1px); }
+      25.0% { transform: translate(277.2px, 303.6px); }
+      29.2% { transform: translate(205.7px, 290.8px); }
+      33.3% { transform: translate(150.2px, 271.4px); }
+      37.5% { transform: translate(114.4px, 246.8px); }
+      41.7% { transform: translate(100.8px, 218.7px); }
+      45.8% { transform: translate(110.4px, 189px); }
+      50.0% { transform: translate(142.4px, 159.7px); }
+      54.2% { transform: translate(194.6px, 132.8px); }
+      58.3% { transform: translate(263.6px, 110.1px); }
+      62.5% { transform: translate(344.7px, 93.2px); }
+      66.7% { transform: translate(432.2px, 83.3px); }
+      70.8% { transform: translate(520.2px, 80.9px); }
+      75.0% { transform: translate(602.8px, 86.4px); }
+      79.2% { transform: translate(674.3px, 99.2px); }
+      83.3% { transform: translate(729.8px, 118.6px); }
+      87.5% { transform: translate(765.6px, 143.2px); }
+      91.7% { transform: translate(779.2px, 171.3px); }
+      95.8% { transform: translate(769.6px, 201px); }
+      100.0% { transform: translate(737.6px, 230.3px); }
+    }
+
+    @keyframes orbit-css {
+      0.0% { transform: translate(142.4px, 159.7px); }
+      4.2% { transform: translate(194.6px, 132.8px); }
+      8.3% { transform: translate(263.6px, 110.1px); }
+      12.5% { transform: translate(344.7px, 93.2px); }
+      16.7% { transform: translate(432.2px, 83.3px); }
+      20.8% { transform: translate(520.2px, 80.9px); }
+      25.0% { transform: translate(602.8px, 86.4px); }
+      29.2% { transform: translate(674.3px, 99.2px); }
+      33.3% { transform: translate(729.8px, 118.6px); }
+      37.5% { transform: translate(765.6px, 143.2px); }
+      41.7% { transform: translate(779.2px, 171.3px); }
+      45.8% { transform: translate(769.6px, 201px); }
+      50.0% { transform: translate(737.6px, 230.3px); }
+      54.2% { transform: translate(685.4px, 257.2px); }
+      58.3% { transform: translate(616.4px, 279.9px); }
+      62.5% { transform: translate(535.3px, 296.8px); }
+      66.7% { transform: translate(447.8px, 306.7px); }
+      70.8% { transform: translate(359.8px, 309.1px); }
+      75.0% { transform: translate(277.2px, 303.6px); }
+      79.2% { transform: translate(205.7px, 290.8px); }
+      83.3% { transform: translate(150.2px, 271.4px); }
+      87.5% { transform: translate(114.4px, 246.8px); }
+      91.7% { transform: translate(100.8px, 218.7px); }
+      95.8% { transform: translate(110.4px, 189px); }
+      100.0% { transform: translate(142.4px, 159.7px); }
+    }
+
+    /* Track Glowing Trail Sweep Keyframes */
+    @keyframes track-trail-cw-1 {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -488; }
+    }
+    @keyframes track-trail-ccw-2 {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 990; }
+    }
+    @keyframes track-trail-cw-3 {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -1510; }
+    }
+
+    .stack-track-trail-1 { animation: track-trail-cw-1 16s linear infinite; }
+    .stack-track-trail-2 { animation: track-trail-ccw-2 24s linear infinite; }
+    .stack-track-trail-3 { animation: track-trail-cw-3 34s linear infinite; }
+
+    /* Satellite Capsule & Trail Motion Classes */
+    .sat-react    { animation: orbit-react 16s linear infinite; }
+    .sat-react-t1 { animation: orbit-react 16s linear infinite -0.15s; }
+    .sat-react-t2 { animation: orbit-react 16s linear infinite -0.30s; }
+
+    .sat-next     { animation: orbit-next 16s linear infinite; }
+    .sat-next-t1  { animation: orbit-next 16s linear infinite -0.15s; }
+    .sat-next-t2  { animation: orbit-next 16s linear infinite -0.30s; }
+
+    .sat-ts       { animation: orbit-ts 24s linear infinite; }
+    .sat-ts-t1    { animation: orbit-ts 24s linear infinite -0.20s; }
+    .sat-ts-t2    { animation: orbit-ts 24s linear infinite -0.40s; }
+
+    .sat-js       { animation: orbit-js 24s linear infinite; }
+    .sat-js-t1    { animation: orbit-js 24s linear infinite -0.20s; }
+    .sat-js-t2    { animation: orbit-js 24s linear infinite -0.40s; }
+
+    .sat-figma    { animation: orbit-figma 34s linear infinite; }
+    .sat-figma-t1 { animation: orbit-figma 34s linear infinite -0.25s; }
+    .sat-figma-t2 { animation: orbit-figma 34s linear infinite -0.50s; }
+
+    .sat-css      { animation: orbit-css 34s linear infinite; }
+    .sat-css-t1   { animation: orbit-css 34s linear infinite -0.25s; }
+    .sat-css-t2   { animation: orbit-css 34s linear infinite -0.50s; }
+
+    /* Central Core Reactor Pulse */
+    @keyframes stack-core-pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 18px rgba(0, 242, 254, 0.85)); }
+    }
+    .stack-core-anim {
+      animation: stack-core-pulse 3.5s ease-in-out infinite;
+      transform-origin: 440px 195px;
+    }
+
+    /* Fallback and Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .stack-core-anim,
+      .stack-track-trail-1,
+      .stack-track-trail-2,
+      .stack-track-trail-3,
+      .sat-react, .sat-react-t1, .sat-react-t2,
+      .sat-next, .sat-next-t1, .sat-next-t2,
+      .sat-ts, .sat-ts-t1, .sat-ts-t2,
+      .sat-js, .sat-js-t1, .sat-js-t2,
+      .sat-figma, .sat-figma-t1, .sat-figma-t2,
+      .sat-css, .sat-css-t1, .sat-css-t2 {
+        animation: none !important;
+      }
+      .sat-react-t1, .sat-react-t2,
+      .sat-next-t1, .sat-next-t2,
+      .sat-ts-t1, .sat-ts-t2,
+      .sat-js-t1, .sat-js-t2,
+      .sat-figma-t1, .sat-figma-t2,
+      .sat-css-t1, .sat-css-t2 {
+        display: none !important;
+      }
+    }
+    ]]>
+  </style>
+
+  <!-- Background Base -->
+  <rect x="0" y="0" width="880" height="500" rx="20" fill="url(#stack-bg-grad)" stroke="url(#stack-border-grad)" stroke-width="1.5"/>
+  <rect x="0" y="0" width="880" height="500" rx="20" fill="url(#stack-dot-grid)" opacity="0.6"/>
+
+  <!-- Ambient Glow in Center -->
+  <circle cx="440" cy="195" r="140" fill="#247BFF" opacity="0.18" filter="url(#stack-glow)"/>
+  <circle cx="440" cy="195" r="70" fill="#FF354F" opacity="0.12" filter="url(#stack-glow)"/>
+
+  <!-- Section Header -->
+  <g class="stack-mono" transform="translate(45, 40)">
+    <text x="0" y="0" fill="#247BFF" font-size="11" font-weight="700" letter-spacing="1.5">// 02. TECH STACK &amp; ORBITAL ECOSYSTEM</text>
+  </g>
+  <g class="stack-font" transform="translate(45, 70)">
+    <text x="0" y="0" fill="#F8FAFC" font-size="22" font-weight="800">Core Technologies in Continuous Dynamic Orbit</text>
+  </g>
+
+  <!-- ================= ORBIT 3 (OUTER ELLIPSE) ================= -->
+  <!-- Dotted Base Track -->
+  <ellipse cx="440" cy="195" rx="340" ry="112" fill="none" stroke="url(#stack-orbit3-grad)" stroke-width="1.2" stroke-dasharray="5 7" transform="rotate(-4 440 195)"/>
+  <!-- Glowing Trail Arc -->
+  <ellipse cx="440" cy="195" rx="340" ry="112" fill="none" stroke="url(#stack-trail3-grad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="120 635" class="stack-track-trail-3" transform="rotate(-4 440 195)"/>
+
+  <!-- ================= ORBIT 2 (MIDDLE ELLIPSE) ================= -->
+  <!-- Dotted Base Track -->
+  <ellipse cx="440" cy="195" rx="220" ry="78" fill="none" stroke="url(#stack-orbit2-grad)" stroke-width="1.4" stroke-dasharray="4 6" transform="rotate(-8 440 195)"/>
+  <!-- Glowing Trail Arc -->
+  <ellipse cx="440" cy="195" rx="220" ry="78" fill="none" stroke="url(#stack-trail2-grad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="90 405" class="stack-track-trail-2" transform="rotate(-8 440 195)"/>
+
+  <!-- ================= ORBIT 1 (INNER ELLIPSE) ================= -->
+  <!-- Dotted Base Track -->
+  <ellipse cx="440" cy="195" rx="105" ry="42" fill="none" stroke="url(#stack-orbit1-grad)" stroke-width="1.5" stroke-dasharray="3 5" transform="rotate(-14 440 195)"/>
+  <!-- Glowing Trail Arc -->
+  <ellipse cx="440" cy="195" rx="105" ry="42" fill="none" stroke="url(#stack-trail1-grad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="60 184" class="stack-track-trail-1" transform="rotate(-14 440 195)"/>
+
+  <!-- ================= CENTRAL REACTOR HUB ================= -->
+  <g class="stack-core-anim">
+    <!-- Glowing core circle -->
+    <circle cx="440" cy="195" r="15" fill="url(#stack-core-grad)" stroke="#38BDF8" stroke-width="1.8"/>
+    <!-- Outer concentric radar ring -->
+    <circle cx="440" cy="195" r="22" fill="none" stroke="#247BFF" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- Core high-energy center -->
+    <circle cx="440" cy="195" r="5" fill="#38BDF8"/>
+    <circle cx="440" cy="195" r="2" fill="#FFFFFF"/>
+  </g>
+
+  <!-- ================= ORBITAL NODES AND GLOW TRAILS ================= -->
+
+  <!-- ORBIT 3 NODES: Figma and CSS3 -->
+  <!-- Figma Trail Dots -->
+  <circle transform="translate(737.6, 230.3)" class="sat-figma-t1" r="2.8" fill="#FF7262" opacity="0.6" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(737.6, 230.3)" class="sat-figma-t2" r="1.6" fill="#A259FF" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- Figma Satellite Capsule -->
+  <g transform="translate(737.6, 230.3)" class="sat-figma stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-37" y="-12" width="74" height="24" rx="12" fill="#0A1124" stroke="#A259FF" stroke-width="1.2"/>
+    <!-- Figma 5-Shape Vector Logo -->
+    <g transform="translate(-23, 0)">
+      <path d="M 0 -6 A 2 2 0 0 1 0 -2 L -2 -2 A 2 2 0 0 1 -2 -6 Z" fill="#F24E1E"/>
+      <path d="M 2 -6 A 2 2 0 0 1 4 -4 A 2 2 0 0 1 2 -2 Z" fill="#FF7262"/>
+      <path d="M 0 -2 A 2 2 0 0 1 0 2 L -2 2 A 2 2 0 0 1 -2 -2 Z" fill="#A259FF"/>
+      <circle cx="2" cy="0" r="2" fill="#1ABCFE"/>
+      <path d="M -2 2 L 0 2 A 2 2 0 0 1 0 6 A 2 2 0 0 1 -2 4 Z" fill="#0ACF83"/>
+    </g>
+    <text x="-9" y="3.5" fill="#F8FAFC" font-size="10.5" font-weight="700">Figma</text>
+  </g>
+
+  <!-- CSS3 Trail Dots -->
+  <circle transform="translate(142.4, 159.7)" class="sat-css-t1" r="2.8" fill="#38BDF8" opacity="0.6" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(142.4, 159.7)" class="sat-css-t2" r="1.6" fill="#264DE4" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- CSS3 Satellite Capsule -->
+  <g transform="translate(142.4, 159.7)" class="sat-css stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-34" y="-12" width="68" height="24" rx="12" fill="#0A1124" stroke="#38BDF8" stroke-width="1.2"/>
+    <!-- CSS3 Shield Vector Logo -->
+    <g transform="translate(-21, 0)">
+      <path d="M -5 -5.5 L 5 -5.5 L 4 3.5 L 0 5 L -4 3.5 Z" fill="#264DE4"/>
+      <path d="M 0 -5.5 L 5 -5.5 L 4 3.5 L 0 5 Z" fill="#2965F1"/>
+      <path d="M -3 -3 L 3 -3 L 2.5 -0.5 L -2.5 -0.5 L -2.2 -3" stroke="#FFFFFF" stroke-width="0.7" fill="none"/>
+      <path d="M -2 1.5 L 0 2.2 L 2 1.5 L 2.2 0" stroke="#FFFFFF" stroke-width="0.7" fill="none"/>
+    </g>
+    <text x="-8" y="3.5" fill="#38BDF8" font-size="10.5" font-weight="700">CSS3</text>
+  </g>
+
+  <!-- ORBIT 2 NODES: TypeScript and JavaScript -->
+  <!-- TypeScript Trail Dots -->
+  <circle transform="translate(450.9, 272.2)" class="sat-ts-t1" r="2.8" fill="#3178C6" opacity="0.6" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(450.9, 272.2)" class="sat-ts-t2" r="1.6" fill="#93C5FD" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- TypeScript Satellite Capsule -->
+  <g transform="translate(450.9, 272.2)" class="sat-ts stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-46" y="-12" width="92" height="24" rx="12" fill="#0A1124" stroke="#3178C6" stroke-width="1.2"/>
+    <!-- TS Square Icon -->
+    <g transform="translate(-33, 0)">
+      <rect x="-7" y="-6.5" width="13" height="13" rx="2" fill="#3178C6"/>
+      <text x="-0.5" y="3.2" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="800" font-family="monospace">TS</text>
+    </g>
+    <text x="-18" y="3.5" fill="#93C5FD" font-size="10" font-weight="700">TypeScript</text>
+  </g>
+
+  <!-- JavaScript Trail Dots -->
+  <circle transform="translate(429.1, 117.8)" class="sat-js-t1" r="2.8" fill="#F7DF1E" opacity="0.6" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(429.1, 117.8)" class="sat-js-t2" r="1.6" fill="#FDE047" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- JavaScript Satellite Capsule -->
+  <g transform="translate(429.1, 117.8)" class="sat-js stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-45" y="-12" width="90" height="24" rx="12" fill="#0A1124" stroke="#F7DF1E" stroke-width="1.2"/>
+    <!-- JS Square Icon -->
+    <g transform="translate(-32, 0)">
+      <rect x="-7" y="-6.5" width="13" height="13" rx="2" fill="#F7DF1E"/>
+      <text x="-0.5" y="3.2" text-anchor="middle" fill="#000000" font-size="8" font-weight="800" font-family="monospace">JS</text>
+    </g>
+    <text x="-17" y="3.5" fill="#FDE047" font-size="10" font-weight="700">JavaScript</text>
+  </g>
+
+  <!-- ORBIT 1 NODES: React and Next.js -->
+  <!-- React Trail Dots -->
+  <circle transform="translate(541.9, 169.6)" class="sat-react-t1" r="2.8" fill="#61DAFB" opacity="0.65" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(541.9, 169.6)" class="sat-react-t2" r="1.6" fill="#00F2FE" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- React Satellite Capsule -->
+  <g transform="translate(541.9, 169.6)" class="sat-react stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-37" y="-12" width="74" height="24" rx="12" fill="#0A1124" stroke="#61DAFB" stroke-width="1.3"/>
+    <!-- React Atom Icon -->
+    <g transform="translate(-23, 0)">
+      <circle cx="0" cy="0" r="1.8" fill="#61DAFB"/>
+      <ellipse cx="0" cy="0" rx="6" ry="2.2" fill="none" stroke="#61DAFB" stroke-width="0.8"/>
+      <ellipse cx="0" cy="0" rx="6" ry="2.2" fill="none" stroke="#61DAFB" stroke-width="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="0" rx="6" ry="2.2" fill="none" stroke="#61DAFB" stroke-width="0.8" transform="rotate(120)"/>
+    </g>
+    <text x="-9" y="3.5" fill="#61DAFB" font-size="10.5" font-weight="700">React</text>
+  </g>
+
+  <!-- Next.js Trail Dots -->
+  <circle transform="translate(338.1, 220.4)" class="sat-next-t1" r="2.8" fill="#FFFFFF" opacity="0.6" filter="url(#stack-trail-glow)"/>
+  <circle transform="translate(338.1, 220.4)" class="sat-next-t2" r="1.6" fill="#CBD5E1" opacity="0.35" filter="url(#stack-trail-glow)"/>
+
+  <!-- Next.js Satellite Capsule -->
+  <g transform="translate(338.1, 220.4)" class="sat-next stack-font" filter="url(#stack-sat-shadow)">
+    <rect x="-39" y="-12" width="78" height="24" rx="12" fill="#0A1124" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1.2"/>
+    <!-- Next.js Monogram Icon -->
+    <g transform="translate(-25, 0)">
+      <circle cx="0" cy="0" r="6" fill="#000000" stroke="#FFFFFF" stroke-width="0.8"/>
+      <path d="M -2.5 3.5 L -2.5 -3.5 L 1.5 3.5 L 1.5 -3.5" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="-11" y="3.5" fill="#FFFFFF" font-size="10.5" font-weight="700">Next.js</text>
+  </g>
+
+  <!-- ================= BOTTOM GROUPED TECHNOLOGY CHIPS ================= -->
+  <g class="stack-font" transform="translate(45, 365)">
+    <!-- Group 1: Frontend Core -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="250" height="98" rx="14" fill="#0D1528" stroke="#247BFF" stroke-opacity="0.35" stroke-width="1.2"/>
+      <text x="18" y="24" fill="#38BDF8" font-size="12" font-weight="700">⚡ Frontend Core</text>
+      <!-- Subchips -->
+      <g transform="translate(18, 40)">
+        <rect x="0" y="0" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="11" r="3" fill="#E34F26"/>
+        <text x="20" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">HTML5 / CSS3</text>
+
+        <rect x="106" y="0" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="11" r="3" fill="#F7DF1E"/>
+        <text x="126" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">JavaScript (ES6+)</text>
+
+        <rect x="0" y="28" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="39" r="3" fill="#3178C6"/>
+        <text x="20" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">TypeScript</text>
+
+        <rect x="106" y="28" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="39" r="3" fill="#00F2FE"/>
+        <text x="126" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">Responsive Web</text>
+      </g>
+    </g>
+
+    <!-- Group 2: Frameworks and Styling -->
+    <g transform="translate(270, 0)">
+      <rect x="0" y="0" width="250" height="98" rx="14" fill="#0D1528" stroke="#00F2FE" stroke-opacity="0.35" stroke-width="1.2"/>
+      <text x="18" y="24" fill="#00F2FE" font-size="12" font-weight="700">⚛️ Frameworks &amp; Styling</text>
+      <!-- Subchips -->
+      <g transform="translate(18, 40)">
+        <rect x="0" y="0" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="11" r="3" fill="#61DAFB"/>
+        <text x="20" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">React.js</text>
+
+        <rect x="106" y="0" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="11" r="3" fill="#FFFFFF"/>
+        <text x="126" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">Next.js (App Router)</text>
+
+        <rect x="0" y="28" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="39" r="3" fill="#38BDF8"/>
+        <text x="20" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">Tailwind CSS</text>
+
+        <rect x="106" y="28" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="39" r="3" fill="#FF8494"/>
+        <text x="126" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">Design Systems</text>
+      </g>
+    </g>
+
+    <!-- Group 3: Design and Workflow -->
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="250" height="98" rx="14" fill="#0D1528" stroke="#FF354F" stroke-opacity="0.35" stroke-width="1.2"/>
+      <text x="18" y="24" fill="#FF8494" font-size="12" font-weight="700">🎨 Design &amp; Versioning</text>
+      <!-- Subchips -->
+      <g transform="translate(18, 40)">
+        <rect x="0" y="0" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="11" r="3" fill="#F24E1E"/>
+        <text x="20" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">Figma Prototyping</text>
+
+        <rect x="106" y="0" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="11" r="3" fill="#F05032"/>
+        <text x="126" y="15" fill="#E2E8F0" font-size="10.5" font-weight="600">Git Version Control</text>
+
+        <rect x="0" y="28" width="98" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="10" cy="39" r="3" fill="#FFFFFF"/>
+        <text x="20" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">GitHub CI/CD</text>
+
+        <rect x="106" y="28" width="108" height="22" rx="6" fill="#131F3A"/>
+        <circle cx="116" cy="39" r="3" fill="#10B981"/>
+        <text x="126" y="43" fill="#E2E8F0" font-size="10.5" font-weight="600">UI/UX Architecture</text>
+      </g>
+    </g>
+  </g>
+</svg>
